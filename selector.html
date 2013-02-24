@@ -1,0 +1,129 @@
+<!doctype>
+        <html>
+<head>
+    <meta charset="utf-8">
+    <style type="text/css">
+        div:target{background: #ccc;}
+        #login {
+            width:400px;
+            padding:1em 2em 0 2em;
+            font-size:12px;
+        }
+        label {
+            line-height:26px;
+            display:block;
+            font-weight:bold;
+        }
+        #name, #password {
+            border:1px solid #ccc;
+            width:160px;
+            height:22px;
+            padding-left:20px;
+            margin:6px 0;
+            line-height:20px;
+        }
+        #name { background:url(images/name.gif) no-repeat 2px 2px; }
+        #password { background:url(images/password.gif) no-repeat 2px 2px; }
+        .button { margin:6px 0; }
+        #login input:disabled#name {
+            background:#ddd url(images/name1.gif) no-repeat 2px 2px;
+            border:1px solid #fff;
+        }
+        #login input:disabled#password {
+            background:#ddd url(images/password1.gif) no-repeat 2px 2px;
+            border:1px solid #fff;
+        }
+
+    </style>
+</head>
+<body>
+<article>
+<section>
+    <h2>状态伪类</h2>
+    <ol>
+        <li>
+            :hover,:active,:focus
+        </li>
+        <li>
+            :target.http://url#(id),set element:target{}
+        </li>
+        <li>
+            ex:input:disabled#name
+        </li>
+        <li>
+            :checked,:disabled,::selection,:enabled
+        </li>
+    </ol>
+</section>
+    <section>
+        <h2>结构伪类选择器</h2>
+        <ol>
+            <li>
+                nth-child(odd)奇数匹配，nth-child(even)奇偶匹配
+            </li>
+            <li>
+                nth-child(number)匹配第number个
+            </li>
+            <li>
+                nth-child(an)匹配为a倍数的元素，nth-child(an+b)，exp：nth-child(-1n+8)匹配前8个
+            </li>
+            <li>
+                nth-last-of-type(n)倒数第n个元素（按父元素下来算，不分当前标签类）
+                first-of-type第一个
+            </li>
+            <li>
+                :empty选择内容为空的某元素
+            </li>
+            <li>
+                :root
+            </li>
+        </ol>
+    </section>
+<section>
+    <h2>其他选择器</h2>
+    <ol>
+        <li>
+            only-of-type:匹配属于同类型中唯一兄弟元素的E
+        </li>
+        <li>
+            not(s)否定
+        </li>
+        <li>
+            ~兄弟元素选择器
+        </li>
+    </ol>
+</section>
+<section>
+    <h2>属性选择器</h2>
+    <ul>
+        <li>
+            超链接类型识别选择器 a[href$="pdf"]
+        </li>
+    </ul>
+</section>
+<section>
+    <h2>target example</h2>
+    <div class="test1" id="test1">This is the first div which class is test1</div>
+    <div class="test2" id="test2">This is the second div which class is test2</div>
+</section>
+    <section>
+        <h2>disable</h2>
+        <fieldset id="login">
+            <legend>用户登录</legend>
+            <form action="" method="POST" class="form">
+                <label for="name">姓名
+                    <input name="name" type="text"  id="name" value="" disabled="disabled" />
+                </label>
+                <label for="password">密码
+                    <input name="password" type="text" id="password" value="" disabled="disabled" />
+                </label>
+                <input type="image"  class="button" src="images/login1.gif" />
+            </form>
+        </fieldset>
+
+    </section>
+</article>
+
+
+</body>
+        </html>
