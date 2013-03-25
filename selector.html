@@ -1,9 +1,23 @@
 <!doctype>
         <html>
 <head>
+    <meta charset="uft-8">
+    <link rel="stylesheet" href="index.css">
+</head>
+<head>
     <meta charset="utf-8">
     <style type="text/css">
-        div:target{background: #ccc;}
+        /*common section style*/
+        section{margin-bottom: 20px;padding: 10px;border-radius: 3px;background-color: #578FC8;color: #FFF;line-height: 2;}
+        ol{list-style: decimal inside none}
+        /* end common section style*/
+        /* state */
+        .sec-state .sec-ex-h:hover{border-color: #aaffaa}
+        .sec-state .sec-ex-h:active{background-color: #FFF;border-color: #0000FF}
+        .sec-state input:disabled{background-color: #ccc;}
+        .sec-target .test2,.sec-target a{text-indent: 18px;display: block}
+        /* state */
+        .test1:target{background: #ccc;}
         #login {
             width:400px;
             padding:1em 2em 0 2em;
@@ -38,9 +52,9 @@
 </head>
 <body>
 <article>
-<section>
+<section class="sec-state">
     <h2>状态伪类</h2>
-    <ol>
+    <ol class="sec-detail">
         <li>
             :hover,:active,:focus
         </li>
@@ -48,10 +62,26 @@
             :target.http://url#(id),set element:target{}
         </li>
         <li>
-            ex:input:disabled#name
+            <p>:checked,:disabled,::selection,:enabled</p>
+            <p>ex:input:disabled#name</p>
+        </li>
+    </ol>
+    <ol class="sec-ex">
+        <li>
+            <input type="text" placeholder="我是Lillianwang" class="sec-ex-h">
         </li>
         <li>
-            :checked,:disabled,::selection,:enabled
+            <input type="text" placeholder="我是Lillianwang" disabled="disabled">
+        </li>
+        <li>
+            <div class="sec-target">
+                <div class="test1" id="test1">This is the first div which class is test1</div>
+                <div class="test2" id="test2">This is the second div which class is test2</div>
+                <a href="#test1">点我看:target效果</a>
+                <a href="#test2">我要恢复正常</a>
+                <a href="sec-menu.html" target="_blank">target实现下拉菜单</a>
+            </div>
+
         </li>
     </ol>
 </section>
@@ -100,11 +130,6 @@
             超链接类型识别选择器 a[href$="pdf"]
         </li>
     </ul>
-</section>
-<section>
-    <h2>target example</h2>
-    <div class="test1" id="test1">This is the first div which class is test1</div>
-    <div class="test2" id="test2">This is the second div which class is test2</div>
 </section>
     <section>
         <h2>disable</h2>
