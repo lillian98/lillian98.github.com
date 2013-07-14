@@ -8,8 +8,10 @@
     <meta charset="utf-8">
     <style type="text/css">
         /*common section style*/
-        section{margin-bottom: 20px;padding: 10px;border-radius: 3px;background-color: #578FC8;color: #FFF;line-height: 2;}
+        section{margin-bottom: 20px;line-height: 2;border-radius: 10px 10px 0 0;background-color: #fff3da;color: #333;}
         ol{list-style: decimal inside none}
+        .sec-detail{padding: 10px;}
+        .sec-ex{background: #578FC8;color: #fff;}
         /* end common section style*/
         /* state */
         .sec-state .sec-ex-h:hover{border-color: #aaffaa}
@@ -47,13 +49,60 @@
             background:#ddd url(images/password1.gif) no-repeat 2px 2px;
             border:1px solid #fff;
         }
+        .box {
+            width: 300px;
+            height: 300px;
+            background: #888;
+            -webkit-transition: width 2s ease, height 2s ease;
+            -moz-transition: width 2s ease, height 2s ease;
+            -o-transition: width 2s ease, height 2s ease;
+            -ms-transition: width 2s ease, height 2s ease;
+            transition: width 2s ease, height 2s ease;
+        }
+
+        .box:active {
+            width: 500px;
+            height: 500px;
+        }
+        .state-hover img{
+            border: 5px solid #FFF;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 20px;
+            transition:all .5s ease;
+            -webkit-transition:all .5s ease;
+            -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(.7, transparent), to(rgba(0,0,0,0.1)));
+        }
+        .state-hover img:hover{
+            -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(.7, transparent), to(rgba(255,255,255,0.4)));
+            box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(.7, transparent), to(rgba(255,255,255,0.4)));
+            box-shadow: 0px 0px 20px rgba(0,0,0,0.8);
+        }
+        .sec-ex-hover a{
+            transition:all .5s ease;
+        }
+        .hover-text-shadow:hover{
+            text-shadow: 0 0 15px #FFFFFF;
+            -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+        }
+        .hover-transiton-right:hover{
+            padding-left: 25px;
+            background-color: #ff0000;
+        }
+        div:empty,
+        span:empty,
+        li:empty,
+        p:empty,
+        td:empty,
+        th:empty{padding:1em;background-color:#ff0 !important;}
 
     </style>
 </head>
 <body>
 <article>
 <section class="sec-state">
-    <h2>状态伪类</h2>
+    <h2>状态伪类,建议和transition结合</h2>
     <ol class="sec-detail">
         <li>
             :hover,:active,:focus
@@ -63,11 +112,28 @@
         </li>
         <li>
             <p>:checked,:disabled,::selection,:enabled</p>
-            <p>ex:input:disabled#name</p>
         </li>
     </ol>
     <ol class="sec-ex">
         <li>
+            <p>:active</p>
+            <div class="box"></div>
+        </li>
+        <li class="sec-ex-hover">
+            <p>:hover</p>
+            <div class="state-hover">
+                <img src="http://img2.paipaiimg.com/9f10afd2/item-5136D2D4-EAFFF204000000000401000004849FEA.0.120x120.jpg" alt="">
+                <img src="http://img2.paipaiimg.com/9f10afd2/item-5136D2D4-EAFFF204000000000401000004849FEA.0.120x120.jpg" alt="">
+                <img src="http://img2.paipaiimg.com/9f10afd2/item-5136D2D4-EAFFF204000000000401000004849FEA.0.120x120.jpg" alt="">
+                <img src="http://img2.paipaiimg.com/9f10afd2/item-5136D2D4-EAFFF204000000000401000004849FEA.0.120x120.jpg" alt="">
+                <img src="http://img2.paipaiimg.com/9f10afd2/item-5136D2D4-EAFFF204000000000401000004849FEA.0.120x120.jpg" alt="">
+            </div>
+            <a class="hover-text-shadow" href="#nolink">Text Shadow</a>
+            <a class="hover-transiton-right" href="#nolink">Transiton Right</a>
+            <p>http://tympanus.net/Development/IconHoverEffects/</p>
+        </li>
+        <li>
+            <p>加上active、focus、hover在输入框中的表现，如：http://meyerweb.com/eric/css/tests/css2/sec05-11-03.htm</p>
             <input type="text" placeholder="我是Lillianwang" class="sec-ex-h">
         </li>
         <li>
@@ -79,14 +145,17 @@
                 <div class="test2" id="test2">This is the second div which class is test2</div>
                 <a href="#test1">点我看:target效果</a>
                 <a href="#test2">我要恢复正常</a>
-                <a href="sec-menu.html" target="_blank">target实现下拉菜单</a>
+                <a href="sec_menu.html" target="_blank">target实现下拉菜单</a>
             </div>
-
+        </li>
+        <li>
+            after、before伪类应用：
+            http://www.gbtags.com/gb/demoviewer/1108/49f64549-2cfc-4541-b286-ecc03d3f030b/index.html.htm
         </li>
     </ol>
 </section>
     <section>
-        <h2>结构伪类选择器</h2>
+        <h2>结构伪类选择器Structural Pseudo-Classes</h2>
         <ol class="sec-detail">
             <li>
                 nth-child(odd)奇数匹配，nth-child(even)奇偶匹配
@@ -106,6 +175,11 @@
             </li>
             <li>
                 :root
+            </li>
+            <li>
+                <p>支持列表：http://kimblim.dk/css-tests/selectors/</p>
+                <p>ie如何支持：http://www.qianduan.net/use-advanced-css3-selectors-in-ie.html</p>
+                <p>http://selectivizr.com/</p>
             </li>
         </ol>
         <ol class="sec-ex">
@@ -155,8 +229,12 @@
             <li class="nth-an"></li>
             <li class="nth-last"></li>
             <li class="nth-first"></li>
-            <li class="nth-empty"></li>
+            <li class="nth-empty">
+                <p>用于调试可视化过滤空元素</p>
+            </li>
             <li class="nth-root"></li>
+            <li class="nth-child">http://css-tricks.com/examples/nth-child-tester/#</li>
+            <li>http://richardshepherd.com/smashing/pseudo/?style=0</li>
         </ol>
     </section>
 <section>
@@ -206,7 +284,16 @@
 
     </section>
 </article>
-
+<section class="sec-reference">
+    <p>http://www.swordair.com/blog/2013/04/998/</p>
+    <p>http://xycss.com/</p>
+    <p>http://one-div.com/</p>
+    <p>伪元素：http://nicolasgallagher.com/an-introduction-to-css-pseudo-element-hacks/</p>
+    <p>hover：http://tympanus.net/codrops/2011/11/02/original-hover-effects-with-css3/
+        http://blog.templatemonster.com/2011/12/22/css3-hover-effect-tutorials/
+        http://tympanus.net/Tutorials/CircleNavigationEffect/
+    </p>
+</section>
 
 </body>
         </html>
