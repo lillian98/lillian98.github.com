@@ -105,13 +105,19 @@
     <h2>状态伪类,建议和transition结合</h2>
     <ol class="sec-detail">
         <li>
-            :hover,:active,:focus
+            <p>动态伪类</p>
+            <p><em>:hover</em>用户把鼠标移动到元素上面时触发</p>
+            <p><em>:active</em>用户点击元素那一下的效果（正发生在点的那一下，松开鼠标左键此动作也就完成了）</p>
+            <p><em>:focus</em>元素成为焦点（表单比较常用）</p>
         </li>
         <li>
             :target.http://url#(id),set element:target{}
         </li>
         <li>
-            <p>:checked,:disabled,::selection,:enabled</p>
+            <p>:checked,:disabled,:enabled（ie6-ie8不支持）</p>
+        </li>
+        <li>伪元素
+        <p>::selection</p>
         </li>
     </ol>
     <ol class="sec-ex">
@@ -155,8 +161,14 @@
     </ol>
 </section>
     <section>
-        <h2>结构伪类选择器Structural Pseudo-Classes</h2>
+        <h2>结构伪类选择器Structural Pseudo-Classes（http://www.w3cplus.com/css3/pseudo-class-selector）</h2>
         <ol class="sec-detail">
+            <li>
+                first-child(选择某个元素的第一个子元素)
+            </li>
+            <li>
+                last-child(选择某个元素的最后一个子元素)
+            </li>
             <li>
                 nth-child(odd)奇数匹配，nth-child(even)奇偶匹配
             </li>
@@ -293,6 +305,7 @@
         http://blog.templatemonster.com/2011/12/22/css3-hover-effect-tutorials/
         http://tympanus.net/Tutorials/CircleNavigationEffect/
     </p>
+    <p>如何使用css伪类http://www.mangguo.org/how-to-use-css3-pseudo-classes/</p>
 </section>
 
 </body>
