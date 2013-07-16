@@ -8,11 +8,24 @@
     <meta charset="utf-8">
     <style type="text/css">
         /*common section style*/
-        section{margin-bottom: 20px;line-height: 2;border-radius: 10px 10px 0 0;background-color: #fff3da;color: #333;}
+        section{margin-bottom: 20px;line-height: 2;border-radius: 10px 10px 0 0;background-color: #fff3da;color: #333;display: none;}
         ol{list-style: decimal inside none}
         .sec-detail{padding: 10px;}
         .sec-ex{background: #578FC8;color: #fff;}
         /* end common section style*/
+        /* S menu */
+        .mod-menu{width: 985px;margin:100px auto;text-align: center;font-size: 0;}
+        .mod-menu a{display: inline-block;width: 315px;height: 180px;font:bold 20px/180px 黑体;color: #FFF;margin:10px 10px 0 0;text-decoration: none;}
+        .mod-menu a:nth-child(1){background-color:#3498DB}
+        .mod-menu a:nth-child(2){background-color:#9B59B6}
+        .mod-menu a:nth-child(3){background-color:#34495E}
+        .mod-menu a:nth-child(4){background-color:#E67E22}
+        .mod-menu a:nth-child(5){background-color:#E74C3C}
+        /* E menu */
+        /* S fix-menu */
+        .fix-menu{position: fixed;top:0;left: 50%;margin:0 0 0 -492px;}
+        .fix-menu a{width: 197px;height: 40px;font:bold 16px/40px 黑体;margin:0;}
+        /* E fix-menu */
         /* state */
         .sec-state .sec-ex-h:hover{border-color: #aaffaa}
         .sec-state .sec-ex-h:active{background-color: #FFF;border-color: #0000FF}
@@ -78,10 +91,10 @@
             box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(.7, transparent), to(rgba(255,255,255,0.4)));
             box-shadow: 0px 0px 20px rgba(0,0,0,0.8);
         }
-        .sec-ex-hover a{
+        .sec-ex-hover a,.href-back{
             transition:all .5s ease;
         }
-        .hover-text-shadow:hover{
+        .hover-text-shadow:hover,.href-back:hover{
             text-shadow: 0 0 15px #FFFFFF;
             -webkit-transform: scale(1.05);
             transform: scale(1.05);
@@ -97,11 +110,20 @@
         td:empty,
         th:empty{padding:1em;background-color:#ff0 !important;}
 
+        #secState:target, #secStructural:target, #secPro:target, #secOther:target, #secReference:target{display: block}
+
     </style>
 </head>
 <body>
+<div class="mod-menu">
+    <a href="#secState">状态伪类</a>
+    <a href="#secStructural">结构伪类</a>
+    <a href="#secPro">属性伪类</a>
+    <a href="#secOther">其他伪类</a>
+    <a href="#secReference">参考文献</a>
+</div>
 <article>
-<section class="sec-state">
+<section class="sec-state" id="secState">
     <h2>状态伪类,建议和transition结合</h2>
     <ol class="sec-detail">
         <li>
@@ -159,8 +181,9 @@
             http://www.gbtags.com/gb/demoviewer/1108/49f64549-2cfc-4541-b286-ecc03d3f030b/index.html.htm
         </li>
     </ol>
+    <a href="#" class="href-back">返回</a>
 </section>
-    <section>
+    <section class="sec-structural" id="secStructural">
         <h2>结构伪类选择器Structural Pseudo-Classes（http://www.w3cplus.com/css3/pseudo-class-selector）</h2>
         <ol class="sec-detail">
             <li>
@@ -248,8 +271,9 @@
             <li class="nth-child">http://css-tricks.com/examples/nth-child-tester/#</li>
             <li>http://richardshepherd.com/smashing/pseudo/?style=0</li>
         </ol>
+        <a href="#" class="href-back">返回</a>
     </section>
-<section>
+<section class="sec-other" id="secOther">
     <h2>其他选择器</h2>
     <ol class="sec-detail">
         <li>
@@ -267,8 +291,9 @@
         <li class="not"></li>
         <li class="sub"></li>
     </ol>
+    <a href="#" class="href-back">返回</a>
 </section>
-<section>
+<section class="sec-Property" id="secPro">
     <h2>属性选择器</h2>
     <ul class="sec-detail">
         <li>
@@ -278,8 +303,9 @@
     <ul class="sec-ex">
         <li class="href"></li>
     </ul>
+    <a href="#" class="href-back">返回</a>
 </section>
-    <section>
+    <section style="display: none;">
         <h2>disable</h2>
         <fieldset id="login">
             <legend>用户登录</legend>
@@ -296,7 +322,7 @@
 
     </section>
 </article>
-<section class="sec-reference">
+<section class="sec-reference" id="secReference">
     <p>http://www.swordair.com/blog/2013/04/998/</p>
     <p>http://xycss.com/</p>
     <p>http://one-div.com/</p>
@@ -306,7 +332,18 @@
         http://tympanus.net/Tutorials/CircleNavigationEffect/
     </p>
     <p>如何使用css伪类http://www.mangguo.org/how-to-use-css3-pseudo-classes/</p>
+    <a href="#" class="href-back">返回</a>
 </section>
 
 </body>
+<script type="text/javascript" src="http://static.paipaiimg.com/js/jquery.js?t=1.4.1"></script>
+<script type="text/javascript">
+$(".mod-menu a").click(function(){
+    console.log("this",this);
+    $(this).parent().addClass("fix-menu");
+})
+$(".href-back").click(function(){
+    $(".mod-menu").removeClass("fix-menu");
+})
+</script>
         </html>
