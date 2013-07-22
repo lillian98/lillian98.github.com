@@ -53,4 +53,4 @@ table {
 /*common css*/
 article{width: 1250px;margin: 0 auto;}
 a{transition:color 1s;-webkit-transition:color .4s;}
-a:hover,a:visited{color: #A7C5C5;}
+a,a:link,a:hover,a:visited{color: #fff;}
